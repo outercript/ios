@@ -32,8 +32,15 @@
 }
 
 - (IBAction)switchChanged:(id)sender {
+    if (guiSwitch.on) {
+        guiText.text = [ NSString stringWithFormat:@"Activo" ];
+    }
+    else{
+        guiText.text = [ NSString stringWithFormat:@"Inactivo" ];
+    }
 }
 
 - (IBAction)segmentChanged:(id)sender {
+    guiText.text = [ guiSegControl titleForSegmentAtIndex:guiSegControl.selectedSegmentIndex];
 }
 @end
