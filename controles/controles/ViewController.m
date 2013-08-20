@@ -18,6 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    guiText.text = [ NSString stringWithFormat:@"%0.0f", guiSlider.value ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,4 +27,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)sliderChanged:(id)sender {
+    guiText.text = [ NSString stringWithFormat:@"%0.0f", guiSlider.value ];
+}
+
+- (IBAction)switchChanged:(id)sender {
+}
+
+- (IBAction)segmentChanged:(id)sender {
+}
 @end

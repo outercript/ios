@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+    
+    __weak IBOutlet UISegmentedControl *guiSegControl;
+    __weak IBOutlet UISlider *guiSlider;
+    __weak IBOutlet UISwitch *guiSwitch;
+    __weak IBOutlet UITextField *guiText;
+    
+}
+
+- (IBAction)sliderChanged:(id)sender;
+- (IBAction)switchChanged:(id)sender;
+- (IBAction)segmentChanged:(id)sender;
 
 @end
