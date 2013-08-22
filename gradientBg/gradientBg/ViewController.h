@@ -8,6 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+    
+    __weak IBOutlet UISlider *sliderRed;
+    __weak IBOutlet UISlider *sliderBlue;
+    __weak IBOutlet UISlider *sliderGreen;
+    
+    float red;
+    float blue;
+    float green;
+    
+}
+
+- (IBAction)redSlideChange:(id)sender;
+- (IBAction)blueSlideChange:(id)sender;
+- (IBAction)greenSlideChange:(id)sender;
+- (void) changeBackground;
 
 @end

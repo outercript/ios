@@ -83,11 +83,7 @@
 		BEB2B99E17C5C2AE0070B03E /* gradientBg */ = {
 			isa = PBXGroup;
 			children = (
-				BEB2B9A717C5C2AE0070B03E /* AppDelegate.h */,
-				BEB2B9A817C5C2AE0070B03E /* AppDelegate.m */,
-				BEB2B9B017C5C2AE0070B03E /* MainStoryboard.storyboard */,
-				BEB2B9B317C5C2AE0070B03E /* ViewController.h */,
-				BEB2B9B417C5C2AE0070B03E /* ViewController.m */,
+				BEB2B9BB17C5C6220070B03E /* GUI */,
 				BEB2B99F17C5C2AE0070B03E /* Supporting Files */,
 			);
 			path = gradientBg;
@@ -105,6 +101,18 @@
 				BEB2B9AE17C5C2AE0070B03E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BEB2B9BB17C5C6220070B03E /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				BEB2B9A717C5C2AE0070B03E /* AppDelegate.h */,
+				BEB2B9A817C5C2AE0070B03E /* AppDelegate.m */,
+				BEB2B9B017C5C2AE0070B03E /* MainStoryboard.storyboard */,
+				BEB2B9B317C5C2AE0070B03E /* ViewController.h */,
+				BEB2B9B417C5C2AE0070B03E /* ViewController.m */,
+			);
+			name = GUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
