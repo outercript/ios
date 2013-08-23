@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+    <UITextFieldDelegate>
+{
+
+    __weak IBOutlet UITextField *textFieldUsername;
+    __weak IBOutlet UITextField *textFieldPasswd;
+
+
+}
+
+- (IBAction)dismissKeyboard:(id)sender;
 
 @end
