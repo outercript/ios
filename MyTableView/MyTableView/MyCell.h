@@ -12,6 +12,6 @@
     
 }
 
-@property (nonatomic, retain) IBOutlet UILabel *MyLabel;
+@property (nonatomic, weak) IBOutlet UILabel *MyLabel;
 
 @end

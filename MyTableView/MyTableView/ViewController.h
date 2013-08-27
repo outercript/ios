@@ -14,4 +14,7 @@
     
 }
 
+@property (nonatomic, strong) NSMutableArray *arrayMainFeeder;
+
+
 @end
