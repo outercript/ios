@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController{
+@interface ViewController : UIViewController
+    <UITableViewDataSource, UITableViewDelegate>
+{
     
     __weak IBOutlet UITableView *tableViewMain;
     
 }
 
-@property (nonatomic, strong) NSMutableArray *arrayMainFeeder;
+@property (nonatomic, strong) NSMutableDictionary *names;
+@property (nonatomic, strong) NSMutableArray *initials;
 
 
 @end
