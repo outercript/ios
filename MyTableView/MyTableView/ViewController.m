@@ -58,4 +58,15 @@
     return self.initials[section];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *section = self.initials[indexPath.section];
+    NSArray *temp = self.names[section];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hola!"
+                                                    message:temp[indexPath.row]
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Adios"
+                                          otherButtonTitles:nil, nil ];
+    [alert show ];
+}
 @end
