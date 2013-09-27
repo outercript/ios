@@ -21,6 +21,9 @@
 		83DEA93817F5C82F003CB1EB /* Employee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83DEA93617F5C82F003CB1EB /* Employee.xcdatamodeld */; };
 		83DEA93B17F5C82F003CB1EB /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DEA93A17F5C82F003CB1EB /* MasterViewController.m */; };
 		83DEA93E17F5C82F003CB1EB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DEA93D17F5C82F003CB1EB /* DetailViewController.m */; };
+		83DEA95317F5D01C003CB1EB /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DEA95217F5D01C003CB1EB /* Project.m */; };
+		83DEA95617F5D01C003CB1EB /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DEA95517F5D01C003CB1EB /* Department.m */; };
+		83DEA95917F5D074003CB1EB /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 83DEA95817F5D074003CB1EB /* Employee.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,12 @@
 		83DEA93A17F5C82F003CB1EB /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		83DEA93C17F5C82F003CB1EB /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		83DEA93D17F5C82F003CB1EB /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		83DEA95117F5D01C003CB1EB /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Project.h; path = Employee/Project.h; sourceTree = "<group>"; };
+		83DEA95217F5D01C003CB1EB /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Project.m; path = Employee/Project.m; sourceTree = "<group>"; };
+		83DEA95417F5D01C003CB1EB /* Department.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Department.h; path = Employee/Department.h; sourceTree = "<group>"; };
+		83DEA95517F5D01C003CB1EB /* Department.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Department.m; path = Employee/Department.m; sourceTree = "<group>"; };
+		83DEA95717F5D074003CB1EB /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Employee.h; path = Employee/Employee.h; sourceTree = "<group>"; };
+		83DEA95817F5D074003CB1EB /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Employee.m; path = Employee/Employee.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +101,7 @@
 		83DEA92117F5C82F003CB1EB /* Employee */ = {
 			isa = PBXGroup;
 			children = (
+				83DEA94D17F5CF7B003CB1EB /* CoreData */,
 				83DEA92A17F5C82F003CB1EB /* AppDelegate.h */,
 				83DEA92B17F5C82F003CB1EB /* AppDelegate.m */,
 				83DEA93317F5C82F003CB1EB /* MainStoryboard.storyboard */,
@@ -117,6 +127,20 @@
 				83DEA93117F5C82F003CB1EB /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83DEA94D17F5CF7B003CB1EB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				83DEA95717F5D074003CB1EB /* Employee.h */,
+				83DEA95817F5D074003CB1EB /* Employee.m */,
+				83DEA95417F5D01C003CB1EB /* Department.h */,
+				83DEA95517F5D01C003CB1EB /* Department.m */,
+				83DEA95117F5D01C003CB1EB /* Project.h */,
+				83DEA95217F5D01C003CB1EB /* Project.m */,
+			);
+			name = CoreData;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +214,9 @@
 				83DEA93817F5C82F003CB1EB /* Employee.xcdatamodeld in Sources */,
 				83DEA93B17F5C82F003CB1EB /* MasterViewController.m in Sources */,
 				83DEA93E17F5C82F003CB1EB /* DetailViewController.m in Sources */,
+				83DEA95317F5D01C003CB1EB /* Project.m in Sources */,
+				83DEA95617F5D01C003CB1EB /* Department.m in Sources */,
+				83DEA95917F5D074003CB1EB /* Employee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
