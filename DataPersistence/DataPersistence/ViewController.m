@@ -53,8 +53,10 @@
     [ userData setInteger:(int)ageSelector.value forKey:@"age" ];
     
     if (userPhoto.image != nil) {
+        NSString *savePath = [ NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+        savePath = [ savePath stringByAppendingPathComponent:@"user_photo.png"];
         NSData *photoData = UIImagePNGRepresentation(userPhoto.image);
-        [ userData setObject:photoData forKey:@"userPhoto"];
+        [ photoData writeToFile:savePath atomically:YES ];
     }
     
     [ userData synchronize ];
@@ -68,10 +70,11 @@
     ageSelector.value = [ userData integerForKey:@"age" ];
     [ self ageChanged:self ];
 
-    if([userData objectForKey:@"userPhoto"] != nil ){
-        NSData *tmp =[userData objectForKey:@"userPhoto"];
-        userPhoto.image = [ UIImage imageWithData:tmp];
-    }
+    NSString *savePath = [ NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    savePath = [ savePath stringByAppendingPathComponent:@"user_photo.png"];
+    NSData *tmp = [NSData dataWithContentsOfFile:savePath ];
+    userPhoto.image = [ UIImage imageWithData:tmp];
+
 
 }
 
