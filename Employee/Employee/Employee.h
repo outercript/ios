@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) double salary;
-@property (nonatomic) NSTimeInterval dateOfBirth;
+@property (nonatomic, retain) NSDate * dateOfBirth;
 @property (nonatomic, retain) NSData * image;
 @property (nonatomic, retain) Department *department;
 @property (nonatomic, retain) NSSet *projects;

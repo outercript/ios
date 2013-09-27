@@ -14,7 +14,7 @@
 @interface Project : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic) NSTimeInterval dueDate;
+@property (nonatomic, retain) NSDate * dueDate;
 @property (nonatomic) int16_t priority;
 @property (nonatomic, retain) NSSet *employees;
 @end
