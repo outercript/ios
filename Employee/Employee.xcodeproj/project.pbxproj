@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		839AEB0F17FB0E58007436DD /* EditEmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839AEB0E17FB0E58007436DD /* EditEmployeeViewController.m */; };
+		839AEB1217FB0EDA007436DD /* EmployeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 839AEB1117FB0EDA007436DD /* EmployeesViewController.m */; };
 		83DEA91A17F5C82F003CB1EB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DEA91917F5C82F003CB1EB /* UIKit.framework */; };
 		83DEA91C17F5C82F003CB1EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DEA91B17F5C82F003CB1EB /* Foundation.framework */; };
 		83DEA91E17F5C82F003CB1EB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DEA91D17F5C82F003CB1EB /* CoreGraphics.framework */; };
@@ -27,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		839AEB0D17FB0E58007436DD /* EditEmployeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditEmployeeViewController.h; sourceTree = "<group>"; };
+		839AEB0E17FB0E58007436DD /* EditEmployeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditEmployeeViewController.m; sourceTree = "<group>"; };
+		839AEB1017FB0EDA007436DD /* EmployeesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmployeesViewController.h; sourceTree = "<group>"; };
+		839AEB1117FB0EDA007436DD /* EmployeesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmployeesViewController.m; sourceTree = "<group>"; };
 		83DEA91617F5C82F003CB1EB /* Employee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Employee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DEA91917F5C82F003CB1EB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83DEA91B17F5C82F003CB1EB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -105,6 +111,10 @@
 				83DEA92A17F5C82F003CB1EB /* AppDelegate.h */,
 				83DEA92B17F5C82F003CB1EB /* AppDelegate.m */,
 				83DEA93317F5C82F003CB1EB /* MainStoryboard.storyboard */,
+				839AEB1017FB0EDA007436DD /* EmployeesViewController.h */,
+				839AEB1117FB0EDA007436DD /* EmployeesViewController.m */,
+				839AEB0D17FB0E58007436DD /* EditEmployeeViewController.h */,
+				839AEB0E17FB0E58007436DD /* EditEmployeeViewController.m */,
 				83DEA93917F5C82F003CB1EB /* MasterViewController.h */,
 				83DEA93A17F5C82F003CB1EB /* MasterViewController.m */,
 				83DEA93C17F5C82F003CB1EB /* DetailViewController.h */,
@@ -217,6 +227,8 @@
 				83DEA95317F5D01C003CB1EB /* Project.m in Sources */,
 				83DEA95617F5D01C003CB1EB /* Department.m in Sources */,
 				83DEA95917F5D074003CB1EB /* Employee.m in Sources */,
+				839AEB0F17FB0E58007436DD /* EditEmployeeViewController.m in Sources */,
+				839AEB1217FB0EDA007436DD /* EmployeesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +351,7 @@
 				83DEA94317F5C82F003CB1EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
