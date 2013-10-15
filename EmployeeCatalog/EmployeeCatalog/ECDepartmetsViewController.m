@@ -96,7 +96,7 @@
         if ([depName length] > 0) {
             PFObject *dep = [PFObject objectWithClassName:@"Department"];
             [dep setObject:depName forKey:@"name"];
-            [dep saveEventually];
+            [dep saveInBackground];
             
             [self loadData];
         }

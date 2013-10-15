@@ -32,9 +32,9 @@
         txtSalary.text = [NSString stringWithFormat:@"%@",
                           [self.employee objectForKey:@"salary"]];
         dateOfBirth.date = [self.employee objectForKey:@"dayOfBirth"];
-        PFObject *dep = [self.employee objectForKey:@"department"];
         
-        [dep fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        PFObject *dep = [self.employee objectForKey:@"department"];
+        [dep fetchInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             lblDepartment.text = [dep objectForKey:@"name"];
             selectedDepartment = dep;
         }];
@@ -70,9 +70,9 @@
 
     [emp setObject:txtName.text forKey:@"name"];
     [emp setObject:@([[txtSalary text] doubleValue]) forKey:@"salary"];
-    [emp setObject:dateOfBirth.date forKey:@"dateOfBirth"];
+    [emp setObject:dateOfBirth.date forKey:@"dayOfBirth"];
     [emp setObject:selectedDepartment forKey:@"department"];
-    [emp saveEventually];
+    [emp saveInBackground];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
