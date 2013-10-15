@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ECDepartmetsViewController.h"
 
-@class Employee;
-@class Department;
-
 @interface ECEditEmployeeViewController : UIViewController <ECDepartmentsDelegate> {
     
     __weak IBOutlet UITextField *txtName;

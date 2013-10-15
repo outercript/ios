@@ -32,11 +32,11 @@
         txtSalary.text = [NSString stringWithFormat:@"%@",
                           [self.employee objectForKey:@"salary"]];
         dateOfBirth.date = [self.employee objectForKey:@"dayOfBirth"];
-        [self.employee fetchInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-            PFObject *dep = [object objectForKey:@"department"];
+        PFObject *dep = [self.employee objectForKey:@"department"];
+        
+        [dep fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             lblDepartment.text = [dep objectForKey:@"name"];
             selectedDepartment = dep;
-
         }];
     }
 }

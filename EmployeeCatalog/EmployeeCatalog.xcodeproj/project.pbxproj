@@ -22,9 +22,6 @@
 		8308D8CF17F5C6F10016E854 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8308D8CE17F5C6F10016E854 /* Default-568h@2x.png */; };
 		8308D8D217F5C6F10016E854 /* EmployeeCatalog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8308D8D017F5C6F10016E854 /* EmployeeCatalog.xcdatamodeld */; };
 		8308D8D917F5C72E0016E854 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8308D8D817F5C72E0016E854 /* MainStoryboard.storyboard */; };
-		8308D8DC17F5D0840016E854 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308D8DB17F5D0840016E854 /* Project.m */; };
-		8308D8E217F5D0850016E854 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308D8E117F5D0850016E854 /* Department.m */; };
-		8308D8E517F5D0D90016E854 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308D8E417F5D0D90016E854 /* Employee.m */; };
 		833DA7D018083943000B9266 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833DA7CF18083943000B9266 /* Parse.framework */; };
 		833DA7D218083992000B9266 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833DA7D118083992000B9266 /* AudioToolbox.framework */; };
 		833DA7D41808399D000B9266 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833DA7D31808399D000B9266 /* CFNetwork.framework */; };
@@ -60,12 +57,6 @@
 		8308D8CE17F5C6F10016E854 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8308D8D117F5C6F10016E854 /* EmployeeCatalog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EmployeeCatalog.xcdatamodel; sourceTree = "<group>"; };
 		8308D8D817F5C72E0016E854 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
-		8308D8DA17F5D0840016E854 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
-		8308D8DB17F5D0840016E854 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
-		8308D8E017F5D0850016E854 /* Department.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Department.h; sourceTree = "<group>"; };
-		8308D8E117F5D0850016E854 /* Department.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Department.m; sourceTree = "<group>"; };
-		8308D8E317F5D0D90016E854 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
-		8308D8E417F5D0D90016E854 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
 		833DA7CF18083943000B9266 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		833DA7D118083992000B9266 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		833DA7D31808399D000B9266 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -149,12 +140,6 @@
 				8308D8C817F5C6F10016E854 /* ECAppDelegate.m */,
 				8308D8D017F5C6F10016E854 /* EmployeeCatalog.xcdatamodeld */,
 				8308D8BF17F5C6F10016E854 /* Supporting Files */,
-				8308D8E017F5D0850016E854 /* Department.h */,
-				8308D8E117F5D0850016E854 /* Department.m */,
-				8308D8DA17F5D0840016E854 /* Project.h */,
-				8308D8DB17F5D0840016E854 /* Project.m */,
-				8308D8E317F5D0D90016E854 /* Employee.h */,
-				8308D8E417F5D0D90016E854 /* Employee.m */,
 				830387BB17FB0DC0001E9BF5 /* ECEditEmployeeViewController.h */,
 				830387BC17FB0DC0001E9BF5 /* ECEditEmployeeViewController.m */,
 				830387BE17FB0F54001E9BF5 /* ECEmployeesViewController.h */,
@@ -249,9 +234,6 @@
 				8308D8C517F5C6F10016E854 /* main.m in Sources */,
 				8308D8C917F5C6F10016E854 /* ECAppDelegate.m in Sources */,
 				8308D8D217F5C6F10016E854 /* EmployeeCatalog.xcdatamodeld in Sources */,
-				8308D8DC17F5D0840016E854 /* Project.m in Sources */,
-				8308D8E217F5D0850016E854 /* Department.m in Sources */,
-				8308D8E517F5D0D90016E854 /* Employee.m in Sources */,
 				830387BD17FB0DC0001E9BF5 /* ECEditEmployeeViewController.m in Sources */,
 				830387C017FB0F54001E9BF5 /* ECEmployeesViewController.m in Sources */,
 				830670E917FF07FE00D74AAA /* ECDepartmetsViewController.m in Sources */,
