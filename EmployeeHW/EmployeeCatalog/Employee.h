@@ -14,7 +14,7 @@
 @interface Employee : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic) NSTimeInterval dateOfBirth;
+@property (nonatomic, retain) NSDate * dateOfBirth;
 @property (nonatomic) double salary;
 @property (nonatomic, retain) NSData * picture;
 @property (nonatomic, retain) Department *department;

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830387BD17FB0DC0001E9BF5 /* ECEditEmployeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830387BC17FB0DC0001E9BF5 /* ECEditEmployeeViewController.m */; };
+		830387C017FB0F54001E9BF5 /* ECEmployeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830387BF17FB0F54001E9BF5 /* ECEmployeesViewController.m */; };
+		830670E917FF07FE00D74AAA /* ECDepartmetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 830670E817FF07FE00D74AAA /* ECDepartmetsViewController.m */; };
 		8308D8B717F5C6F10016E854 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308D8B617F5C6F10016E854 /* UIKit.framework */; };
 		8308D8B917F5C6F10016E854 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308D8B817F5C6F10016E854 /* Foundation.framework */; };
 		8308D8BB17F5C6F10016E854 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8308D8BA17F5C6F10016E854 /* CoreGraphics.framework */; };
@@ -22,9 +25,18 @@
 		8308D8DC17F5D0840016E854 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308D8DB17F5D0840016E854 /* Project.m */; };
 		8308D8E217F5D0850016E854 /* Department.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308D8E117F5D0850016E854 /* Department.m */; };
 		8308D8E517F5D0D90016E854 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308D8E417F5D0D90016E854 /* Employee.m */; };
+		BE85FC6018130D1F00515FF1 /* ECEditProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE85FC5F18130D1F00515FF1 /* ECEditProjectViewController.m */; };
+		BE85FC631813155400515FF1 /* ECProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE85FC621813155400515FF1 /* ECProjectsViewController.m */; };
+		BE85FC6A1813351000515FF1 /* ECEmployeeProjects.m in Sources */ = {isa = PBXBuildFile; fileRef = BE85FC691813351000515FF1 /* ECEmployeeProjects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		830387BB17FB0DC0001E9BF5 /* ECEditEmployeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECEditEmployeeViewController.h; sourceTree = "<group>"; };
+		830387BC17FB0DC0001E9BF5 /* ECEditEmployeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECEditEmployeeViewController.m; sourceTree = "<group>"; };
+		830387BE17FB0F54001E9BF5 /* ECEmployeesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECEmployeesViewController.h; sourceTree = "<group>"; };
+		830387BF17FB0F54001E9BF5 /* ECEmployeesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECEmployeesViewController.m; sourceTree = "<group>"; };
+		830670E717FF07FE00D74AAA /* ECDepartmetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECDepartmetsViewController.h; sourceTree = "<group>"; };
+		830670E817FF07FE00D74AAA /* ECDepartmetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECDepartmetsViewController.m; sourceTree = "<group>"; };
 		8308D8B317F5C6F10016E854 /* EmployeeCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8308D8B617F5C6F10016E854 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8308D8B817F5C6F10016E854 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,6 +59,12 @@
 		8308D8E117F5D0850016E854 /* Department.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Department.m; sourceTree = "<group>"; };
 		8308D8E317F5D0D90016E854 /* Employee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employee.h; sourceTree = "<group>"; };
 		8308D8E417F5D0D90016E854 /* Employee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employee.m; sourceTree = "<group>"; };
+		BE85FC5E18130D1F00515FF1 /* ECEditProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECEditProjectViewController.h; sourceTree = "<group>"; };
+		BE85FC5F18130D1F00515FF1 /* ECEditProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECEditProjectViewController.m; sourceTree = "<group>"; };
+		BE85FC611813155400515FF1 /* ECProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECProjectsViewController.h; sourceTree = "<group>"; };
+		BE85FC621813155400515FF1 /* ECProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECProjectsViewController.m; sourceTree = "<group>"; };
+		BE85FC681813351000515FF1 /* ECEmployeeProjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECEmployeeProjects.h; sourceTree = "<group>"; };
+		BE85FC691813351000515FF1 /* ECEmployeeProjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECEmployeeProjects.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,17 +113,20 @@
 		8308D8BE17F5C6F10016E854 /* EmployeeCatalog */ = {
 			isa = PBXGroup;
 			children = (
+				BE85FC5D18130A5500515FF1 /* CoreData */,
 				8308D8D817F5C72E0016E854 /* MainStoryboard.storyboard */,
 				8308D8C717F5C6F10016E854 /* ECAppDelegate.h */,
 				8308D8C817F5C6F10016E854 /* ECAppDelegate.m */,
-				8308D8D017F5C6F10016E854 /* EmployeeCatalog.xcdatamodeld */,
 				8308D8BF17F5C6F10016E854 /* Supporting Files */,
-				8308D8E017F5D0850016E854 /* Department.h */,
-				8308D8E117F5D0850016E854 /* Department.m */,
-				8308D8DA17F5D0840016E854 /* Project.h */,
-				8308D8DB17F5D0840016E854 /* Project.m */,
-				8308D8E317F5D0D90016E854 /* Employee.h */,
-				8308D8E417F5D0D90016E854 /* Employee.m */,
+				BE85FC641813300E00515FF1 /* EditViewControllers */,
+				830387BE17FB0F54001E9BF5 /* ECEmployeesViewController.h */,
+				830387BF17FB0F54001E9BF5 /* ECEmployeesViewController.m */,
+				BE85FC611813155400515FF1 /* ECProjectsViewController.h */,
+				BE85FC621813155400515FF1 /* ECProjectsViewController.m */,
+				830670E717FF07FE00D74AAA /* ECDepartmetsViewController.h */,
+				830670E817FF07FE00D74AAA /* ECDepartmetsViewController.m */,
+				BE85FC681813351000515FF1 /* ECEmployeeProjects.h */,
+				BE85FC691813351000515FF1 /* ECEmployeeProjects.m */,
 			);
 			path = EmployeeCatalog;
 			sourceTree = "<group>";
@@ -122,6 +143,31 @@
 				8308D8CE17F5C6F10016E854 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE85FC5D18130A5500515FF1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8308D8D017F5C6F10016E854 /* EmployeeCatalog.xcdatamodeld */,
+				8308D8E017F5D0850016E854 /* Department.h */,
+				8308D8E117F5D0850016E854 /* Department.m */,
+				8308D8DA17F5D0840016E854 /* Project.h */,
+				8308D8DB17F5D0840016E854 /* Project.m */,
+				8308D8E317F5D0D90016E854 /* Employee.h */,
+				8308D8E417F5D0D90016E854 /* Employee.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		BE85FC641813300E00515FF1 /* EditViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE85FC5E18130D1F00515FF1 /* ECEditProjectViewController.h */,
+				BE85FC5F18130D1F00515FF1 /* ECEditProjectViewController.m */,
+				830387BB17FB0DC0001E9BF5 /* ECEditEmployeeViewController.h */,
+				830387BC17FB0DC0001E9BF5 /* ECEditEmployeeViewController.m */,
+			);
+			name = EditViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +243,12 @@
 				8308D8DC17F5D0840016E854 /* Project.m in Sources */,
 				8308D8E217F5D0850016E854 /* Department.m in Sources */,
 				8308D8E517F5D0D90016E854 /* Employee.m in Sources */,
+				830387BD17FB0DC0001E9BF5 /* ECEditEmployeeViewController.m in Sources */,
+				830387C017FB0F54001E9BF5 /* ECEmployeesViewController.m in Sources */,
+				830670E917FF07FE00D74AAA /* ECDepartmetsViewController.m in Sources */,
+				BE85FC6018130D1F00515FF1 /* ECEditProjectViewController.m in Sources */,
+				BE85FC631813155400515FF1 /* ECProjectsViewController.m in Sources */,
+				BE85FC6A1813351000515FF1 /* ECEmployeeProjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +363,7 @@
 				8308D8D717F5C6F10016E854 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
