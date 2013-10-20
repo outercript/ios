@@ -67,9 +67,13 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="B44-Ga-NzA">
-                                <rect key="frame" x="20" y="20" width="87" height="99"/>
+                            <imageView contentMode="scaleToFill" image="Default-568h@2x.png" id="B44-Ga-NzA">
+                                <rect key="frame" x="14" y="20" width="87" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2a3-Kk-8JG" appends="YES" id="DoF-12-VFZ"/>
+                                </connections>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" id="bMm-4K-DhU">
                                 <rect key="frame" x="115" y="20" width="185" height="30"/>
@@ -118,12 +122,28 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" id="kdi-Bu-bAA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="Cell" textLabel="zNS-jr-SnJ" detailTextLabel="xLM-BM-ner" style="IBUITableViewCellStyleSubtitle" id="kdi-Bu-bAA">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zNS-jr-SnJ">
+                                                    <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xLM-BM-ner">
+                                                    <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
@@ -148,7 +168,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="xK4-R9-bKQ" appends="YES" id="9Cg-2j-OhM"/>
+                            <outletCollection property="gestureRecognizers" destination="xK4-R9-bKQ" appends="YES" id="SzB-h1-GrE"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Edit employee" id="Yis-8g-yGf">
@@ -161,14 +181,22 @@
                     <connections>
                         <outlet property="lblDepartment" destination="nOO-zP-vWC" id="tMi-ox-Jh2"/>
                         <outlet property="myProjects" destination="izm-M2-utp" id="x9A-P7-B7e"/>
+                        <outlet property="photoGesture" destination="2a3-Kk-8JG" id="Ycz-kO-HNA"/>
                         <outlet property="txtName" destination="bMm-4K-DhU" id="0Pg-oM-Re0"/>
                         <outlet property="txtSalary" destination="z3o-FZ-W8m" id="Z3l-W5-Yfd"/>
+                        <outlet property="userPhoto" destination="B44-Ga-NzA" id="P03-T1-WOy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfM-qd-RqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="xK4-R9-bKQ">
+                <tapGestureRecognizer id="xK4-R9-bKQ" userLabel="Keyboard">
                     <connections>
                         <action selector="dismissKeyboard:" destination="DFu-x8-31x" id="Rzv-cI-By2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2a3-Kk-8JG" userLabel="Photo Selection">
+                    <connections>
+                        <action selector="photoSelect:" destination="DFu-x8-31x" id="CbX-zI-cI4"/>
+                        <outlet property="delegate" destination="B44-Ga-NzA" id="12D-4Q-GtY"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -403,6 +431,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <point key="canvasLocation" x="796" y="-720"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Default-568h@2x.png" width="640" height="1136"/>
+    </resources>
     <classes>
         <class className="ECDepartmetsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ECDepartmetsViewController.h"/>
@@ -414,12 +445,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ECEditEmployeeViewController.h"/>
             <relationships>
                 <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="photoSelect:"/>
                 <relationship kind="action" name="save:"/>
                 <relationship kind="action" name="selectDepartment:"/>
                 <relationship kind="outlet" name="lblDepartment" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="myProjects" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="photoGesture" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="txtName" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="txtSalary" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userPhoto" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="ECEditProjectViewController" superclassName="UIViewController">

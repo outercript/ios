@@ -27,7 +27,6 @@
 		8308D8E517F5D0D90016E854 /* Employee.m in Sources */ = {isa = PBXBuildFile; fileRef = 8308D8E417F5D0D90016E854 /* Employee.m */; };
 		BE85FC6018130D1F00515FF1 /* ECEditProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE85FC5F18130D1F00515FF1 /* ECEditProjectViewController.m */; };
 		BE85FC631813155400515FF1 /* ECProjectsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE85FC621813155400515FF1 /* ECProjectsViewController.m */; };
-		BE85FC6A1813351000515FF1 /* ECEmployeeProjects.m in Sources */ = {isa = PBXBuildFile; fileRef = BE85FC691813351000515FF1 /* ECEmployeeProjects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,8 +62,6 @@
 		BE85FC5F18130D1F00515FF1 /* ECEditProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECEditProjectViewController.m; sourceTree = "<group>"; };
 		BE85FC611813155400515FF1 /* ECProjectsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECProjectsViewController.h; sourceTree = "<group>"; };
 		BE85FC621813155400515FF1 /* ECProjectsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECProjectsViewController.m; sourceTree = "<group>"; };
-		BE85FC681813351000515FF1 /* ECEmployeeProjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECEmployeeProjects.h; sourceTree = "<group>"; };
-		BE85FC691813351000515FF1 /* ECEmployeeProjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECEmployeeProjects.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +122,6 @@
 				BE85FC621813155400515FF1 /* ECProjectsViewController.m */,
 				830670E717FF07FE00D74AAA /* ECDepartmetsViewController.h */,
 				830670E817FF07FE00D74AAA /* ECDepartmetsViewController.m */,
-				BE85FC681813351000515FF1 /* ECEmployeeProjects.h */,
-				BE85FC691813351000515FF1 /* ECEmployeeProjects.m */,
 			);
 			path = EmployeeCatalog;
 			sourceTree = "<group>";
@@ -248,7 +243,6 @@
 				830670E917FF07FE00D74AAA /* ECDepartmetsViewController.m in Sources */,
 				BE85FC6018130D1F00515FF1 /* ECEditProjectViewController.m in Sources */,
 				BE85FC631813155400515FF1 /* ECProjectsViewController.m in Sources */,
-				BE85FC6A1813351000515FF1 /* ECEmployeeProjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
