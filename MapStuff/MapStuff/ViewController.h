@@ -10,7 +10,8 @@
 #import <MapKit/MapKit.h>
 
 @interface ViewController : UIViewController <MKMapViewDelegate>{
-    
+    CLLocationCoordinate2D lastCoordinate;
+    BOOL isFirst;
 }
 
 @property (weak, nonatomic) IBOutlet MKMapView *myMap;

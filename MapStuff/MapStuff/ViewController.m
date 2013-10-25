@@ -19,6 +19,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    isFirst = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,7 +77,27 @@
     annotation.title = @"Titulo";
     annotation.subtitle = @"Aqui";
 
-    // Add it to the map
+    // Add it to the mapd
     [self.myMap addAnnotation:annotation];
+
+    if (!isFirst) {
+        // Primitive array
+        CLLocationCoordinate2D coordinates[2];
+        coordinates[0] = lastCoordinate;
+        coordinates[1] = location;
+
+        MKPolyline *polyline = [MKPolyline polylineWithCoordinates:coordinates count:2];
+        [self.myMap addOverlay:polyline];
+    }
+
+    lastCoordinate = location;
+    isFirst = NO;
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
+    MKPolylineView *polyView = [[MKPolylineView alloc] initWithPolyline:overlay];
+    polyView.strokeColor = [UIColor redColor];
+    polyView.lineWidth = 3;
+    return polyView;
 }
 @end
