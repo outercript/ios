@@ -32,11 +32,11 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
 }
 
 - (void) tweetsForQuery:(NSString *)query{
-    [self queryWithAPICall:kAPITweetSearch parameters:@{@"q": query}];
+    [self queryWithAPICall:kAPITweetSearch parameters:@{@"q": query, @"result_type": @"popular"}];
 }
 
 - (void) usersForQuery:(NSString *)query{
-    [self queryWithAPICall:kAPIUserSearch parameters:@{@"q": query}];
+    [self queryWithAPICall:kAPIUserSearch parameters:@{@"q": query, @"result_type": @"popular"}];
 }
 
 - (void) queryWithAPICall:(NSString *)APIRequest parameters:(NSDictionary *)queryParams{
