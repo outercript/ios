@@ -29,7 +29,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="rho-rP-KiJ" kind="push" id="B31-Nu-3rJ"/>
+                                    <segue destination="rho-rP-KiJ" kind="push" identifier="twittView" id="B31-Nu-3rJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="717" y="-229"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Twitts Table View Controller-->
         <scene sceneID="BaP-Qp-ZZK">
             <objects>
-                <tableViewController id="rho-rP-KiJ" sceneMemberID="viewController">
+                <tableViewController id="rho-rP-KiJ" customClass="TwittsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="LCY-M0-QPx">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,6 +105,14 @@
     <resources>
         <image name="Default.png" width="320" height="480"/>
     </resources>
+    <classes>
+        <class className="ArtistTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ArtistTableViewController.h"/>
+        </class>
+        <class className="TwittsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TwittsTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

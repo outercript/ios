@@ -32,7 +32,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    for (id keyword in keywordList) {
+    for (id keyword in self.keywordList) {
         [requestManager tweetsForQuery:keyword];
         NSLog(@"Requesting data for: %@", keyword);
     }
