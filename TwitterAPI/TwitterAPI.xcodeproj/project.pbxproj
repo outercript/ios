@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		838EE15E183FACD700031D8D /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 838EE15D183FACD700031D8D /* ArtistTableViewController.m */; };
+		838EE161183FB16100031D8D /* TwittsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 838EE160183FB16100031D8D /* TwittsTableViewController.m */; };
 		BE8EBA14183C622F0004AE2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8EBA13183C622F0004AE2E /* UIKit.framework */; };
 		BE8EBA16183C622F0004AE2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8EBA15183C622F0004AE2E /* Foundation.framework */; };
 		BE8EBA18183C622F0004AE2E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE8EBA17183C622F0004AE2E /* CoreGraphics.framework */; };
@@ -27,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		838EE15C183FACD700031D8D /* ArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewController.h; sourceTree = "<group>"; };
+		838EE15D183FACD700031D8D /* ArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewController.m; sourceTree = "<group>"; };
+		838EE15F183FB16100031D8D /* TwittsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwittsTableViewController.h; sourceTree = "<group>"; };
+		838EE160183FB16100031D8D /* TwittsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwittsTableViewController.m; sourceTree = "<group>"; };
 		BE8EBA10183C622F0004AE2E /* TwitterAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8EBA13183C622F0004AE2E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE8EBA15183C622F0004AE2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,9 +79,6 @@
 		BE8EBA07183C622F0004AE2E = {
 			isa = PBXGroup;
 			children = (
-				BE8EBA41183C65200004AE2E /* QuartzCore.framework */,
-				BE8EBA3F183C65190004AE2E /* Accounts.framework */,
-				BE8EBA35183C62420004AE2E /* Social.framework */,
 				BE8EBA1B183C622F0004AE2E /* TwitterAPI */,
 				BE8EBA12183C622F0004AE2E /* Frameworks */,
 				BE8EBA11183C622F0004AE2E /* Products */,
@@ -93,6 +96,9 @@
 		BE8EBA12183C622F0004AE2E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BE8EBA41183C65200004AE2E /* QuartzCore.framework */,
+				BE8EBA3F183C65190004AE2E /* Accounts.framework */,
+				BE8EBA35183C62420004AE2E /* Social.framework */,
 				BE8EBA13183C622F0004AE2E /* UIKit.framework */,
 				BE8EBA15183C622F0004AE2E /* Foundation.framework */,
 				BE8EBA17183C622F0004AE2E /* CoreGraphics.framework */,
@@ -111,6 +117,10 @@
 				BE8EBA37183C63220004AE2E /* TwitterRequest.h */,
 				BE8EBA38183C63220004AE2E /* TwitterRequest.m */,
 				BE8EBA46183C70CB0004AE2E /* MainStoryboard.storyboard */,
+				838EE15F183FB16100031D8D /* TwittsTableViewController.h */,
+				838EE160183FB16100031D8D /* TwittsTableViewController.m */,
+				838EE15C183FACD700031D8D /* ArtistTableViewController.h */,
+				838EE15D183FACD700031D8D /* ArtistTableViewController.m */,
 				BE8EBA3C183C64260004AE2E /* MainViewController.h */,
 				BE8EBA3D183C64260004AE2E /* MainViewController.m */,
 			);
@@ -202,6 +212,8 @@
 				BE8EBA2F183C622F0004AE2E /* TwitterAPI.xcdatamodeld in Sources */,
 				BE8EBA39183C63220004AE2E /* TwitterRequest.m in Sources */,
 				BE8EBA3E183C64260004AE2E /* MainViewController.m in Sources */,
+				838EE15E183FACD700031D8D /* ArtistTableViewController.m in Sources */,
+				838EE161183FB16100031D8D /* TwittsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +332,7 @@
 				BE8EBA34183C622F0004AE2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
