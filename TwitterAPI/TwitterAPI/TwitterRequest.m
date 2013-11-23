@@ -18,6 +18,8 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
 - (void) requestAuth{
     accountStore = [[ACAccountStore alloc] init];
     ACAccountType *accType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    // Check for permissions for the current app
     [accountStore requestAccessToAccountsWithType:accType options:nil completion:^(BOOL granted, NSError *error){
         if (granted) {
             NSArray *accounts = [accountStore accountsWithAccountType:accType];
@@ -27,16 +29,24 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
                 return;
             }
         }
-        NSLog(@"Failed Auth");
+        
+        // Authorization failed, tell the user to check for misconfigurations
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Upsss!"
+                                  message:@"I could not connect to Twitter. Check internet connection and make sure you setup your Twitter account in your device"
+                                  delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
     }];
 }
 
 - (void) tweetsForQuery:(NSString *)query{
-    [self queryWithAPICall:kAPITweetSearch parameters:@{@"q": query, @"result_type": @"popular"}];
+    [self queryWithAPICall:kAPITweetSearch parameters:@{@"q": query, @"result_type": @"mixed"}];
 }
 
 - (void) usersForQuery:(NSString *)query{
-    [self queryWithAPICall:kAPIUserSearch parameters:@{@"q": query, @"result_type": @"popular"}];
+    [self queryWithAPICall:kAPIUserSearch parameters:@{@"q": query, @"result_type": @"mixed"}];
 }
 
 - (void) queryWithAPICall:(NSString *)APIRequest parameters:(NSDictionary *)queryParams{
@@ -55,22 +65,32 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
     [actualRequest performRequestWithHandler:^(NSData *responseData,
                                                NSHTTPURLResponse *urlResponse,
                                                NSError *error) {
+
         if (error){
             NSLog(@"Query Error: %@", error.localizedDescription);
             return;
         }
-        
+
         if (responseData){
+            // Prepare data to be sent to the delegate
             NSArray *parsedData = [self parseAPICallResponse:APIRequest data:responseData];
-            [self.delegate didCompleteRequest:parsedData];
+            
+            // Call delegate method in the main thread, otherwise will shutter
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.delegate didCompleteRequest:parsedData];
+            });
         }
+        
     }];
 }
 
 - (NSArray *) parseAPICallResponse:(NSString *)APIRequest data:(NSData *)responseData{
+    // Convert JSON data into a dictionary
     NSDictionary *serializedData = [ NSJSONSerialization JSONObjectWithData:responseData
                                                                     options:NSJSONReadingMutableLeaves
                                                                       error:nil];
+
+    // Choose the appropiate parser for this request
     if (APIRequest == kAPITweetSearch) {
         return [self parseTweetsFromResponse:serializedData];
     }
@@ -82,13 +102,14 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
     }
 }
 
-
+#pragma mark - Response Parsers
 - (NSArray *) parseTweetsFromResponse:(NSDictionary *)responseData{
     NSMutableArray *data = [[NSMutableArray alloc] init];
     for (id item in [responseData objectForKey:@"statuses"]) {
         [data addObject:@{
          @"date": item[@"created_at"],
          @"username": item[@"user"][@"screen_name"],
+         @"thumbnail": item[@"user"][@"profile_image_url"],
          @"content": item[@"text"]
          }];
     }

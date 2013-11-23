@@ -8,6 +8,7 @@
 
 #import "TwittsTableViewController.h"
 #import "TwitterRequest.h"
+#import "TwitCell.h"
 
 @interface TwittsTableViewController ()
 
@@ -27,13 +28,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    requestManager = [[TwitterRequest alloc] init];
-    [requestManager requestAuth];
+    self.requestManager.delegate = self;
+    twittsList = [[NSMutableArray alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    self.title = self.celebrityName;
+    
+    // Load data from Twitter
     for (id keyword in self.keywordList) {
-        [requestManager tweetsForQuery:keyword];
+        [self.requestManager tweetsForQuery:keyword];
         NSLog(@"Requesting data for: %@", keyword);
     }
 }
@@ -55,15 +59,53 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TwitCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = twittsList[indexPath.row][@"username"];
-    cell.detailTextLabel.text = twittsList[indexPath.row][@"content"];
+    // Load text
+    cell.userName.text = [NSString stringWithFormat:@"@%@",
+                          twittsList[indexPath.row][@"username"]];
+    cell.content.text = twittsList[indexPath.row][@"content"];
+    
+    CGRect newFrame = cell.content.frame;
+    newFrame.size.height = [self calculateCellHeight:cell rowIndex:indexPath.row];
+    cell.content.frame = newFrame;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    dispatch_async(queue, ^{
+        NSURL *imageURL = [NSURL URLWithString:twittsList[indexPath.row][@"thumbnail"]];
+        NSData *rawImage = [NSData dataWithContentsOfURL:imageURL];
+        UIImage *image = [UIImage imageWithData:rawImage];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [cell.userImage setImage:image];
+            [cell setNeedsLayout];
+        });
+    });
     
     return cell;
 }
 
 #pragma mark - Table view delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *CellIdentifier = @"Cell";
+    TwitCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
+    CGFloat contentHeigh = [self calculateCellHeight:cell rowIndex:indexPath.row];
+    contentHeigh += 35.0f;
+    
+    CGFloat height = MAX(contentHeigh, 52.0f);
+    return height;
+}
+
+- (CGFloat)calculateCellHeight:(TwitCell *)cell rowIndex:(int)row {
+    NSString *myText = twittsList[row][@"content"];
+    CGSize maxContentSize = CGSizeMake(240, 9999);
+    CGSize newContentSize = [myText sizeWithFont:cell.content.font
+                               constrainedToSize:maxContentSize
+                                   lineBreakMode:cell.content.lineBreakMode];
+    return newContentSize.height;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -76,7 +118,9 @@
      */
 }
 
+#pragma mark - TwitterRequest delegate
 - (void) didCompleteRequest:(NSArray *)requestData{
+    NSLog(@"Data received...");
     [twittsList addObjectsFromArray:requestData];
     [self.tableView reloadData];
 }

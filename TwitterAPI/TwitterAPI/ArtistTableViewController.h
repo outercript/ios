@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TwitterRequest.h"
 
 @interface ArtistTableViewController : UITableViewController{
     NSArray *artistList;
+    TwitterRequest *requestManager;
 }
 
 @end

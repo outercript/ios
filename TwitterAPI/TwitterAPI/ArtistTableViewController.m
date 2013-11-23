@@ -8,6 +8,7 @@
 
 #import "ArtistTableViewController.h"
 #import "TwittsTableViewController.h"
+#import "TwitterRequest.h"
 
 @interface ArtistTableViewController ()
 
@@ -27,10 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     artistList = @[@"Lady Gaga", @"Pink", @"Rihanna", @"Obama", @"U2"];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    requestManager = [[TwitterRequest alloc] init];
+    [requestManager requestAuth];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,6 +48,8 @@
         TwittsTableViewController *twittView = segue.destinationViewController;
         twittView.celebrityName = celebrityName;
         twittView.keywordList = @[celebrityName];
+        twittView.requestManager = requestManager;
+        
         NSLog(@"Loaging celebrity: %@", celebrityName);
     }
 }
@@ -72,13 +74,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    // Nothing to do here
 }
 
 @end

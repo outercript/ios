@@ -11,10 +11,10 @@
 
 @interface TwittsTableViewController : UITableViewController <TwitterRequestDelegate>{
     NSMutableArray *twittsList;
-    TwitterRequest *requestManager;
 }
 
 @property (nonatomic, strong) NSString *celebrityName;
 @property (nonatomic, strong) NSArray *keywordList;
+@property (nonatomic, strong) TwitterRequest *requestManager;
 
 @end

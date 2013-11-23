@@ -10,4 +10,8 @@
 
 @interface TwitCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UIImageView *userImage;
+@property (strong, nonatomic) IBOutlet UILabel *userName;
+@property (strong, nonatomic) IBOutlet UILabel *content;
+
 @end
