@@ -13,6 +13,9 @@
 #import "BHPhoto.h"
 #import "BHAlbumTitleReusableView.h"
 
+#import "TwittsTableViewController.h"
+#import "TwitterRequest.h"
+
 static NSString * const PhotoCellIdentifier = @"PhotoCell";
 static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 
@@ -34,16 +37,20 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     
     UIImage *patternImage = [UIImage imageNamed:@"concrete_wall"];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
-    
+
+    artistList = @[@"Lady Gaga", @"Pink", @"Rihanna", @"Obama", @"U2"];
+    requestManager = [[TwitterRequest alloc] init];
+    [requestManager requestAuth];
+
     self.albums = [NSMutableArray array];
 
     NSURL *urlPrefix = [NSURL URLWithString:@"https://raw.github.com/ShadoFlameX/PhotoCollectionView/master/Photos/"];
 	
     NSInteger photoIndex = 0;
     
-    for (NSInteger a = 0; a < 12; a++) {
+    for (NSInteger a = 0; a < artistList.count; a++) {
         BHAlbum *album = [[BHAlbum alloc] init];
-        album.name = [NSString stringWithFormat:@"Photo Album %d",a + 1];
+        album.name = artistList[a];
         
         NSUInteger photoCount = arc4random()%4 + 2;
         for (NSInteger p = 0; p < photoCount; p++) {
@@ -159,9 +166,35 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     return titleView;
 }
 
+- (BOOL) hasTwitterAccount{
+    if (requestManager.userAccount == nil) {
+        return NO;
+    }
+    return YES;
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *c = [self.storyboard instantiateViewControllerWithIdentifier:@"details"];
-    [self.navigationController pushViewController:c animated:YES];
+    if ([self hasTwitterAccount] == NO){
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Upsss!"
+                                  message:@"I could not connect to Twitter. Check internet connection and make sure you setup your Twitter account in your device"
+                                  delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:nil];
+        [alertView show];
+        return;
+    }
+    
+    TwittsTableViewController *twittView = [self.storyboard instantiateViewControllerWithIdentifier:@"details"];
+
+    NSString *celebrityName = artistList[indexPath.row];
+    twittView.celebrityName = celebrityName;
+    twittView.keywordList = @[celebrityName];
+    twittView.requestManager = requestManager;
+
+    NSLog(@"Loaging celebrity: %@", celebrityName);
+
+    [self.navigationController pushViewController:twittView animated:YES];
 }
 
 @end

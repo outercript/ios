@@ -13,10 +13,10 @@
 
 @interface TwitterRequest : NSObject{
     __strong ACAccountStore *accountStore;
-    ACAccount *userAccount;
 }
 
 @property (nonatomic, weak) id<TwitterRequestDelegate> delegate;
+@property (retain, strong) ACAccount *userAccount;
 
 - (void) requestAuth;
 - (void) tweetsForQuery:(NSString *)query;

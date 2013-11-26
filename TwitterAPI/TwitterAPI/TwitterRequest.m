@@ -24,20 +24,20 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
         if (granted) {
             NSArray *accounts = [accountStore accountsWithAccountType:accType];
             if (accounts.count > 0) {
-                userAccount = [accounts objectAtIndex:0];
-                NSLog(@"Logged as: %@", userAccount.username);
+                self.userAccount = [accounts objectAtIndex:0];
+                NSLog(@"Logged as: %@", self.userAccount.username);
                 return;
             }
         }
         
         // Authorization failed, tell the user to check for misconfigurations
-        UIAlertView *alertView = [[UIAlertView alloc]
+        /*UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"Upsss!"
                                   message:@"I could not connect to Twitter. Check internet connection and make sure you setup your Twitter account in your device"
                                   delegate:self
                                   cancelButtonTitle:@"OK"
                                   otherButtonTitles:nil];
-        [alertView show];
+        [alertView show];*/
     }];
 }
 
@@ -50,7 +50,7 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
 }
 
 - (void) queryWithAPICall:(NSString *)APIRequest parameters:(NSDictionary *)queryParams{
-    if (userAccount == nil) {
+    if (self.userAccount == nil) {
         NSLog(@"Uninitialized account");
         return;
     }
@@ -60,7 +60,7 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
                                                   requestMethod:SLRequestMethodGET
                                                             URL:queryURL
                                                      parameters:queryParams];
-    [actualRequest setAccount:userAccount];
+    [actualRequest setAccount:self.userAccount];
     
     [actualRequest performRequestWithHandler:^(NSData *responseData,
                                                NSHTTPURLResponse *urlResponse,
