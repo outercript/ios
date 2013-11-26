@@ -21,6 +21,7 @@
 - (void) requestAuth;
 - (void) tweetsForQuery:(NSString *)query;
 - (void) usersForQuery:(NSString *)query;
+- (void) userWithScreenName:(NSString *)screen_name;
 
 @end
 

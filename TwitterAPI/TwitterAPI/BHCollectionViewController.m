@@ -18,6 +18,8 @@
 
 #import "AppDelegate.h"
 #import "Celebrity.h"
+#import "CelebrityViewController.h"
+
 #import <CoreData/CoreData.h>
 
 static NSString * const PhotoCellIdentifier = @"PhotoCell";
@@ -220,5 +222,11 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     [self.navigationController pushViewController:twittView animated:YES];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"editCelebrity"]) {
+        CelebrityViewController *editView = segue.destinationViewController;
+        editView.requestManager = requestManager;
+    }
+}
 
 @end

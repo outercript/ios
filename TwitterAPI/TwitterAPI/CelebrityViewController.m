@@ -9,6 +9,8 @@
 #import "CelebrityViewController.h"
 #import "AppDelegate.h"
 #import "Celebrity.h"
+
+#import "TwitterRequest.h"
 #import <CoreData/CoreData.h>
 
 @interface CelebrityViewController ()
@@ -29,12 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.requestManager.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +67,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
     Celebrity *dep = Celebritys[indexPath.row];
-    cell.textLabel.text = dep.userName;
+    cell.textLabel.text = [NSString stringWithFormat: @"@%@", dep.userName];
     return cell;
 }
 
@@ -118,12 +115,46 @@
             AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
             Celebrity *dep = [NSEntityDescription insertNewObjectForEntityForName:@"Celebrity" inManagedObjectContext:appDelegate.managedObjectContext];
             dep.userName = username;
+
             [appDelegate saveContext];
 
+            [self.requestManager userWithScreenName:username];
             [self loadData];
             [self.tableView reloadData];
         }
     }
 }
 
+
+- (void)didCompleteRequest:(NSArray *)requestData{
+    AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    NSArray *results;
+    NSDictionary *response;
+    NSLog(@"Obtained user data");
+    
+    if (requestData.count > 0) {
+        response = requestData[0];
+        
+        NSManagedObjectContext *context = appDelegate.managedObjectContext;
+
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        NSPredicate *searchFilter = [NSPredicate predicateWithFormat:@"userName = %@", response[@"username"]];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Celebrity" inManagedObjectContext:context];
+        
+        [request setEntity:entity];
+        [request setPredicate:searchFilter];
+        results = [context executeFetchRequest:request error:nil];
+    }
+
+    if (results.count > 0) {
+        Celebrity *celebrity = results[0];
+        celebrity.realName = response[@"real_name"];
+        celebrity.userPhoto = response[@"photo"];
+        [appDelegate saveContext];
+    }
+
+    else{
+        NSLog(@"You failed");
+    }
+}
 @end

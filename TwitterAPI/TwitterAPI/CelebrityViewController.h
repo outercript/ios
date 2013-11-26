@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TwitterRequest.h"
 
-@interface CelebrityViewController : UITableViewController <UIAlertViewDelegate> {
+@interface CelebrityViewController : UITableViewController <UIAlertViewDelegate, TwitterRequestDelegate> {
     NSArray *Celebritys;
 }
+
+@property (nonatomic, strong) TwitterRequest *requestManager;
 
 - (IBAction)addCelebrity:(id)sender;
 

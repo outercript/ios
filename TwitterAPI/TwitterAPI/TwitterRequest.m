@@ -12,6 +12,7 @@
 
 static NSString* kAPITweetSearch = @"https://api.twitter.com/1.1/search/tweets.json";
 static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.json";
+static NSString* kAPIUserShow = @"https://api.twitter.com/1.1/users/show.json";
 
 @implementation TwitterRequest
 
@@ -47,6 +48,10 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
 
 - (void) usersForQuery:(NSString *)query{
     [self queryWithAPICall:kAPIUserSearch parameters:@{@"q": query, @"result_type": @"mixed"}];
+}
+
+- (void) userWithScreenName:(NSString *)screen_name{
+    [self queryWithAPICall:kAPIUserShow parameters:@{@"screen_name": screen_name}];
 }
 
 - (void) queryWithAPICall:(NSString *)APIRequest parameters:(NSDictionary *)queryParams{
@@ -97,6 +102,9 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
     else if (APIRequest == kAPIUserSearch){
         return [self parseUsersFromResponse:serializedData];
     }
+    else if (APIRequest == kAPIUserShow){
+        return [self parseUserDetailsFromResponse:serializedData];
+    }
     else{
         return @[];
     }
@@ -125,6 +133,19 @@ static NSString* kAPIUserSearch = @"https://api.twitter.com/1.1/users/search.jso
          @"url": item[@"url"]
          }];
     }
+    return data;
+}
+
+- (NSArray *) parseUserDetailsFromResponse:(NSDictionary *)responseData{
+    NSMutableArray *data = [[NSMutableArray alloc] init];
+    NSString *userPhoto = responseData[@"profile_image_url"];
+    [data addObject:@{
+         @"real_name": responseData[@"name"],
+         @"username": responseData[@"screen_name"],
+         @"thumbnail": userPhoto,
+         @"photo": [userPhoto stringByReplacingOccurrencesOfString:@"_normal"
+                                                       withString:@""]
+         }];
     return data;
 }
 
