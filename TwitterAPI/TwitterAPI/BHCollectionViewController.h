@@ -10,7 +10,7 @@
 #import "TwitterRequest.h"
 
 @interface BHCollectionViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate>{
-    NSArray *artistList;
+    NSArray *Celebritys;
     TwitterRequest *requestManager;
 }
 

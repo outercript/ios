@@ -16,6 +16,10 @@
 #import "TwittsTableViewController.h"
 #import "TwitterRequest.h"
 
+#import "AppDelegate.h"
+#import "Celebrity.h"
+#import <CoreData/CoreData.h>
+
 static NSString * const PhotoCellIdentifier = @"PhotoCell";
 static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 
@@ -38,33 +42,10 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     UIImage *patternImage = [UIImage imageNamed:@"concrete_wall"];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 
-    artistList = @[@"Lady Gaga", @"Pink", @"Rihanna", @"Obama", @"U2"];
+    //artistList = @[@"Lady Gaga", @"Pink", @"Rihanna", @"Obama", @"U2"];
     requestManager = [[TwitterRequest alloc] init];
     [requestManager requestAuth];
 
-    self.albums = [NSMutableArray array];
-
-    NSURL *urlPrefix = [NSURL URLWithString:@"https://raw.github.com/ShadoFlameX/PhotoCollectionView/master/Photos/"];
-	
-    NSInteger photoIndex = 0;
-    
-    for (NSInteger a = 0; a < [artistList count]; a++) {
-        BHAlbum *album = [[BHAlbum alloc] init];
-        album.name = artistList[a];
-        
-        NSUInteger photoCount = arc4random()%4 + 2;
-        for (NSInteger p = 0; p < photoCount; p++) {
-            // there are up to 25 photos available to load from the code repository
-            NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%d.jpg",photoIndex % 25];
-            NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoFilename];
-            BHPhoto *photo = [BHPhoto photoWithImageURL:photoURL];
-            [album addPhoto:photo];
-            
-            photoIndex++;
-        }
-        
-        [self.albums addObject:album];
-    }
     
     [self.collectionView registerClass:[BHAlbumPhotoCell class]
             forCellWithReuseIdentifier:PhotoCellIdentifier];
@@ -76,12 +57,53 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     self.thumbnailQueue.maxConcurrentOperationCount = 3;
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self loadData];
+    [self.collectionView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadData {
+    self.albums = [NSMutableArray array];
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Celebrity"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"userName" ascending:YES]];
+
+    AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    Celebritys = [appDelegate.managedObjectContext executeFetchRequest:request error:nil];
+
+    NSInteger photoIndex = 0;
+
+    for (Celebrity *item in Celebritys) {
+        BHAlbum *album = [[BHAlbum alloc] init];
+        album.name = item.userName;
+
+        for (NSInteger p = 0; p < 3; p++) {
+            NSURL *photoURL;
+            
+            if (item.userPhoto == nil) {
+                photoURL = [NSURL URLWithString:@"http://talesofgrim.files.wordpress.com/2013/07/personal_trollface_hd.png"];
+            }
+            
+            else{
+                photoURL = [NSURL URLWithString:item.userPhoto];
+            }
+            
+            BHPhoto *photo = [BHPhoto photoWithImageURL:photoURL];
+            [album addPhoto:photo];
+
+            photoIndex++;
+        }
+
+        [self.albums addObject:album];
+    }
+}
 
 #pragma mark - View Rotation
 
@@ -166,6 +188,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     return titleView;
 }
 
+#pragma mark - Twitter stuff
 - (BOOL) hasTwitterAccount{
     if (requestManager.userAccount == nil) {
         return NO;
@@ -184,17 +207,18 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
         [alertView show];
         return;
     }
-    
+
     TwittsTableViewController *twittView = [self.storyboard instantiateViewControllerWithIdentifier:@"details"];
 
-    NSString *celebrityName = artistList[indexPath.row];
-    twittView.celebrityName = celebrityName;
-    twittView.keywordList = @[celebrityName];
+    Celebrity *celebrity = Celebritys[indexPath.section];
+    twittView.celebrityName = celebrity.userName;
+    twittView.keywordList = @[celebrity.userName];
     twittView.requestManager = requestManager;
 
-    NSLog(@"Loaging celebrity: %@", celebrityName);
+    NSLog(@"Loading celebrity: %@", celebrity.userName);
 
     [self.navigationController pushViewController:twittView animated:YES];
 }
+
 
 @end
