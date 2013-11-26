@@ -48,7 +48,7 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 	
     NSInteger photoIndex = 0;
     
-    for (NSInteger a = 0; a < artistList.count; a++) {
+    for (NSInteger a = 0; a < [artistList count]; a++) {
         BHAlbum *album = [[BHAlbum alloc] init];
         album.name = artistList[a];
         

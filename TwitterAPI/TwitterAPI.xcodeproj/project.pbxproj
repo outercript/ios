@@ -18,6 +18,8 @@
 		834356D41844F9C60011B9A9 /* concrete_wall@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 834356D01844F9C60011B9A9 /* concrete_wall@2X.png */; };
 		834356D51844F9C60011B9A9 /* emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = 834356D11844F9C60011B9A9 /* emblem.png */; };
 		834356D61844F9C60011B9A9 /* emblem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 834356D21844F9C60011B9A9 /* emblem@2x.png */; };
+		8343570C1845052E0011B9A9 /* Celebrity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8343570B1845052E0011B9A9 /* Celebrity.m */; };
+		8343570F184505B50011B9A9 /* CelebrityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8343570E184505B50011B9A9 /* CelebrityViewController.m */; };
 		838EE15E183FACD700031D8D /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 838EE15D183FACD700031D8D /* ArtistTableViewController.m */; };
 		838EE161183FB16100031D8D /* TwittsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 838EE160183FB16100031D8D /* TwittsTableViewController.m */; };
 		BE1A2442184058CD00014467 /* TwitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1A2441184058CD00014467 /* TwitCell.m */; };
@@ -59,6 +61,10 @@
 		834356D01844F9C60011B9A9 /* concrete_wall@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concrete_wall@2X.png"; sourceTree = "<group>"; };
 		834356D11844F9C60011B9A9 /* emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emblem.png; sourceTree = "<group>"; };
 		834356D21844F9C60011B9A9 /* emblem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emblem@2x.png"; sourceTree = "<group>"; };
+		8343570A1845052E0011B9A9 /* Celebrity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Celebrity.h; sourceTree = "<group>"; };
+		8343570B1845052E0011B9A9 /* Celebrity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Celebrity.m; sourceTree = "<group>"; };
+		8343570D184505B50011B9A9 /* CelebrityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CelebrityViewController.h; sourceTree = "<group>"; };
+		8343570E184505B50011B9A9 /* CelebrityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CelebrityViewController.m; sourceTree = "<group>"; };
 		838EE15C183FACD700031D8D /* ArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewController.h; sourceTree = "<group>"; };
 		838EE15D183FACD700031D8D /* ArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewController.m; sourceTree = "<group>"; };
 		838EE15F183FB16100031D8D /* TwittsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwittsTableViewController.h; sourceTree = "<group>"; };
@@ -170,10 +176,14 @@
 				BE8EBA24183C622F0004AE2E /* AppDelegate.h */,
 				BE8EBA25183C622F0004AE2E /* AppDelegate.m */,
 				BE8EBA2D183C622F0004AE2E /* TwitterAPI.xcdatamodeld */,
+				8343570A1845052E0011B9A9 /* Celebrity.h */,
+				8343570B1845052E0011B9A9 /* Celebrity.m */,
 				BE8EBA1C183C622F0004AE2E /* Supporting Files */,
 				BE8EBA37183C63220004AE2E /* TwitterRequest.h */,
 				BE8EBA38183C63220004AE2E /* TwitterRequest.m */,
 				BE8EBA46183C70CB0004AE2E /* MainStoryboard.storyboard */,
+				8343570D184505B50011B9A9 /* CelebrityViewController.h */,
+				8343570E184505B50011B9A9 /* CelebrityViewController.m */,
 				BE1A244318405BA000014467 /* DetailedView */,
 				838EE15C183FACD700031D8D /* ArtistTableViewController.h */,
 				838EE15D183FACD700031D8D /* ArtistTableViewController.m */,
@@ -286,6 +296,8 @@
 				834356CC1844F9180011B9A9 /* BHEmblemView.m in Sources */,
 				834356CD1844F9180011B9A9 /* BHPhoto.m in Sources */,
 				834356CE1844F9180011B9A9 /* BHPhotoAlbumLayout.m in Sources */,
+				8343570C1845052E0011B9A9 /* Celebrity.m in Sources */,
+				8343570F184505B50011B9A9 /* CelebrityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
