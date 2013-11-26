@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		834356C81844F9180011B9A9 /* BHAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 834356BB1844F9180011B9A9 /* BHAlbum.m */; };
+		834356C91844F9180011B9A9 /* BHAlbumPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 834356BD1844F9180011B9A9 /* BHAlbumPhotoCell.m */; };
+		834356CA1844F9180011B9A9 /* BHAlbumTitleReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 834356BF1844F9180011B9A9 /* BHAlbumTitleReusableView.m */; };
+		834356CB1844F9180011B9A9 /* BHCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 834356C11844F9180011B9A9 /* BHCollectionViewController.m */; };
+		834356CC1844F9180011B9A9 /* BHEmblemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 834356C31844F9180011B9A9 /* BHEmblemView.m */; };
+		834356CD1844F9180011B9A9 /* BHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 834356C51844F9180011B9A9 /* BHPhoto.m */; };
+		834356CE1844F9180011B9A9 /* BHPhotoAlbumLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 834356C71844F9180011B9A9 /* BHPhotoAlbumLayout.m */; };
+		834356D31844F9C60011B9A9 /* concrete_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 834356CF1844F9C60011B9A9 /* concrete_wall.png */; };
+		834356D41844F9C60011B9A9 /* concrete_wall@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 834356D01844F9C60011B9A9 /* concrete_wall@2X.png */; };
+		834356D51844F9C60011B9A9 /* emblem.png in Resources */ = {isa = PBXBuildFile; fileRef = 834356D11844F9C60011B9A9 /* emblem.png */; };
+		834356D61844F9C60011B9A9 /* emblem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 834356D21844F9C60011B9A9 /* emblem@2x.png */; };
 		838EE15E183FACD700031D8D /* ArtistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 838EE15D183FACD700031D8D /* ArtistTableViewController.m */; };
 		838EE161183FB16100031D8D /* TwittsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 838EE160183FB16100031D8D /* TwittsTableViewController.m */; };
 		BE1A2442184058CD00014467 /* TwitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1A2441184058CD00014467 /* TwitCell.m */; };
@@ -30,6 +41,24 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		834356BA1844F9180011B9A9 /* BHAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHAlbum.h; path = TwitterAPI/BHAlbum.h; sourceTree = "<group>"; };
+		834356BB1844F9180011B9A9 /* BHAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BHAlbum.m; path = TwitterAPI/BHAlbum.m; sourceTree = "<group>"; };
+		834356BC1844F9180011B9A9 /* BHAlbumPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHAlbumPhotoCell.h; path = TwitterAPI/BHAlbumPhotoCell.h; sourceTree = "<group>"; };
+		834356BD1844F9180011B9A9 /* BHAlbumPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BHAlbumPhotoCell.m; path = TwitterAPI/BHAlbumPhotoCell.m; sourceTree = "<group>"; };
+		834356BE1844F9180011B9A9 /* BHAlbumTitleReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHAlbumTitleReusableView.h; path = TwitterAPI/BHAlbumTitleReusableView.h; sourceTree = "<group>"; };
+		834356BF1844F9180011B9A9 /* BHAlbumTitleReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BHAlbumTitleReusableView.m; path = TwitterAPI/BHAlbumTitleReusableView.m; sourceTree = "<group>"; };
+		834356C01844F9180011B9A9 /* BHCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHCollectionViewController.h; path = TwitterAPI/BHCollectionViewController.h; sourceTree = "<group>"; };
+		834356C11844F9180011B9A9 /* BHCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BHCollectionViewController.m; path = TwitterAPI/BHCollectionViewController.m; sourceTree = "<group>"; };
+		834356C21844F9180011B9A9 /* BHEmblemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHEmblemView.h; path = TwitterAPI/BHEmblemView.h; sourceTree = "<group>"; };
+		834356C31844F9180011B9A9 /* BHEmblemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BHEmblemView.m; path = TwitterAPI/BHEmblemView.m; sourceTree = "<group>"; };
+		834356C41844F9180011B9A9 /* BHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHPhoto.h; path = TwitterAPI/BHPhoto.h; sourceTree = "<group>"; };
+		834356C51844F9180011B9A9 /* BHPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BHPhoto.m; path = TwitterAPI/BHPhoto.m; sourceTree = "<group>"; };
+		834356C61844F9180011B9A9 /* BHPhotoAlbumLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BHPhotoAlbumLayout.h; path = TwitterAPI/BHPhotoAlbumLayout.h; sourceTree = "<group>"; };
+		834356C71844F9180011B9A9 /* BHPhotoAlbumLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BHPhotoAlbumLayout.m; path = TwitterAPI/BHPhotoAlbumLayout.m; sourceTree = "<group>"; };
+		834356CF1844F9C60011B9A9 /* concrete_wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = concrete_wall.png; sourceTree = "<group>"; };
+		834356D01844F9C60011B9A9 /* concrete_wall@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concrete_wall@2X.png"; sourceTree = "<group>"; };
+		834356D11844F9C60011B9A9 /* emblem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emblem.png; sourceTree = "<group>"; };
+		834356D21844F9C60011B9A9 /* emblem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emblem@2x.png"; sourceTree = "<group>"; };
 		838EE15C183FACD700031D8D /* ArtistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewController.h; sourceTree = "<group>"; };
 		838EE15D183FACD700031D8D /* ArtistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewController.m; sourceTree = "<group>"; };
 		838EE15F183FB16100031D8D /* TwittsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwittsTableViewController.h; sourceTree = "<group>"; };
@@ -93,6 +122,20 @@
 		BE8EBA07183C622F0004AE2E = {
 			isa = PBXGroup;
 			children = (
+				834356BA1844F9180011B9A9 /* BHAlbum.h */,
+				834356BB1844F9180011B9A9 /* BHAlbum.m */,
+				834356BC1844F9180011B9A9 /* BHAlbumPhotoCell.h */,
+				834356BD1844F9180011B9A9 /* BHAlbumPhotoCell.m */,
+				834356BE1844F9180011B9A9 /* BHAlbumTitleReusableView.h */,
+				834356BF1844F9180011B9A9 /* BHAlbumTitleReusableView.m */,
+				834356C01844F9180011B9A9 /* BHCollectionViewController.h */,
+				834356C11844F9180011B9A9 /* BHCollectionViewController.m */,
+				834356C21844F9180011B9A9 /* BHEmblemView.h */,
+				834356C31844F9180011B9A9 /* BHEmblemView.m */,
+				834356C41844F9180011B9A9 /* BHPhoto.h */,
+				834356C51844F9180011B9A9 /* BHPhoto.m */,
+				834356C61844F9180011B9A9 /* BHPhotoAlbumLayout.h */,
+				834356C71844F9180011B9A9 /* BHPhotoAlbumLayout.m */,
 				BE8EBA1B183C622F0004AE2E /* TwitterAPI */,
 				BE8EBA12183C622F0004AE2E /* Frameworks */,
 				BE8EBA11183C622F0004AE2E /* Products */,
@@ -143,6 +186,10 @@
 		BE8EBA1C183C622F0004AE2E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				834356CF1844F9C60011B9A9 /* concrete_wall.png */,
+				834356D01844F9C60011B9A9 /* concrete_wall@2X.png */,
+				834356D11844F9C60011B9A9 /* emblem.png */,
+				834356D21844F9C60011B9A9 /* emblem@2x.png */,
 				BE8EBA1D183C622F0004AE2E /* TwitterAPI-Info.plist */,
 				BE8EBA1E183C622F0004AE2E /* InfoPlist.strings */,
 				BE8EBA21183C622F0004AE2E /* main.m */,
@@ -210,6 +257,10 @@
 				BE8EBA2A183C622F0004AE2E /* Default@2x.png in Resources */,
 				BE8EBA2C183C622F0004AE2E /* Default-568h@2x.png in Resources */,
 				BE8EBA47183C70CB0004AE2E /* MainStoryboard.storyboard in Resources */,
+				834356D31844F9C60011B9A9 /* concrete_wall.png in Resources */,
+				834356D41844F9C60011B9A9 /* concrete_wall@2X.png in Resources */,
+				834356D51844F9C60011B9A9 /* emblem.png in Resources */,
+				834356D61844F9C60011B9A9 /* emblem@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +279,13 @@
 				838EE15E183FACD700031D8D /* ArtistTableViewController.m in Sources */,
 				838EE161183FB16100031D8D /* TwittsTableViewController.m in Sources */,
 				BE1A2442184058CD00014467 /* TwitCell.m in Sources */,
+				834356C81844F9180011B9A9 /* BHAlbum.m in Sources */,
+				834356C91844F9180011B9A9 /* BHAlbumPhotoCell.m in Sources */,
+				834356CA1844F9180011B9A9 /* BHAlbumTitleReusableView.m in Sources */,
+				834356CB1844F9180011B9A9 /* BHCollectionViewController.m in Sources */,
+				834356CC1844F9180011B9A9 /* BHEmblemView.m in Sources */,
+				834356CD1844F9180011B9A9 /* BHPhoto.m in Sources */,
+				834356CE1844F9180011B9A9 /* BHPhotoAlbumLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
