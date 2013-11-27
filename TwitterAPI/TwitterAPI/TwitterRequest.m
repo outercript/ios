@@ -138,14 +138,21 @@ static NSString* kAPIUserShow = @"https://api.twitter.com/1.1/users/show.json";
 
 - (NSArray *) parseUserDetailsFromResponse:(NSDictionary *)responseData{
     NSMutableArray *data = [[NSMutableArray alloc] init];
-    NSString *userPhoto = responseData[@"profile_image_url"];
-    [data addObject:@{
+    if ([responseData objectForKey:@"errors"]) {
+        NSLog(@"Error: Invalid username...");
+        [data addObject:responseData];
+    }
+    
+    else{
+        NSString *userPhoto = responseData[@"profile_image_url"];
+        [data addObject:@{
          @"real_name": responseData[@"name"],
          @"username": responseData[@"screen_name"],
          @"thumbnail": userPhoto,
          @"photo": [userPhoto stringByReplacingOccurrencesOfString:@"_normal"
-                                                       withString:@""]
+                                                        withString:@""]
          }];
+    }
     return data;
 }
 

@@ -43,8 +43,6 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     
     UIImage *patternImage = [UIImage imageNamed:@"concrete_wall"];
     self.collectionView.backgroundColor = [UIColor colorWithPatternImage:patternImage];
-
-    //artistList = @[@"Lady Gaga", @"Pink", @"Rihanna", @"Obama", @"U2"];
     requestManager = [[TwitterRequest alloc] init];
     [requestManager requestAuth];
 
@@ -64,6 +62,13 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     [super viewDidAppear:animated];
     [self loadData];
     [self.collectionView reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    if ([self hasTwitterAccount] == NO){
+        NSLog(@"Trying to login again");
+        [requestManager requestAuth];
+    }
 }
 
 - (void)didReceiveMemoryWarning

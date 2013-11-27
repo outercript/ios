@@ -434,6 +434,45 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
     <resources>
         <image name="Default-568h@2x.png" width="640" height="1136"/>
     </resources>
+    <classes>
+        <class className="ECDepartmetsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECDepartmetsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addDepartment:"/>
+            </relationships>
+        </class>
+        <class className="ECEditEmployeeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECEditEmployeeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="photoSelect:"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="action" name="selectDepartment:"/>
+                <relationship kind="outlet" name="lblDepartment" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="myProjects" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="photoGesture" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="outlet" name="txtName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="txtSalary" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userPhoto" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="ECEditProjectViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECEditProjectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="outlet" name="dueDate" candidateClass="UIDatePicker"/>
+                <relationship kind="outlet" name="segPriority" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="txtName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ECEmployeesViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECEmployeesViewController.h"/>
+        </class>
+        <class className="ECProjectsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECProjectsViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

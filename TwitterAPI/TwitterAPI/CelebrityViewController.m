@@ -68,6 +68,7 @@
 
     Celebrity *dep = Celebritys[indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat: @"@%@", dep.userName];
+    cell.detailTextLabel.text = dep.realName;
     return cell;
 }
 
@@ -89,14 +90,22 @@
     [appDelegate saveContext];
 
     [self loadData];
-
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table view delegate
 
 - (IBAction)addCelebrity:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Add Celebrity username"
+    if (self.requestManager.userAccount == nil){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Working offline =("
+                                                        message:@"Sorry you can't do that when there is no internet connection or a Twitter account in this device"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Add Twitter Username"
                                                     message:nil
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel"
@@ -112,45 +121,71 @@
     if (buttonIndex != alertView.cancelButtonIndex) {
         NSString *username = [alertView textFieldAtIndex:0].text;
         if ([username length] > 0) {
+            NSArray *results;
+
+            // Trim leading @ from username
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"^@+" options:NSRegularExpressionCaseInsensitive error:nil ];
+            username = [regex stringByReplacingMatchesInString:username options:0 range:NSMakeRange(0, [username length]) withTemplate:@""];
+
+            // Search for duplicates
+
             AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
-            Celebrity *dep = [NSEntityDescription insertNewObjectForEntityForName:@"Celebrity" inManagedObjectContext:appDelegate.managedObjectContext];
-            dep.userName = username;
+            NSManagedObjectContext *context = appDelegate.managedObjectContext;
+            
+            NSFetchRequest *request = [[NSFetchRequest alloc] init];
+            NSPredicate *searchFilter = [NSPredicate predicateWithFormat:@"userName = %@", username];
+            NSEntityDescription *entity = [NSEntityDescription entityForName:@"Celebrity" inManagedObjectContext:context];
 
-            [appDelegate saveContext];
+            [request setEntity:entity];
+            [request setPredicate:searchFilter];
+            results = [context executeFetchRequest:request error:nil];
 
+            if (results.count > 0){
+                NSString *message = [NSString stringWithFormat:@"I like %@ too!", username];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Yeah!"
+                                                                message:message
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Ok"
+                                                      otherButtonTitles:nil];
+                [alert show];
+                return;
+            }
+            
             [self.requestManager userWithScreenName:username];
-            [self loadData];
-            [self.tableView reloadData];
         }
     }
 }
 
 
 - (void)didCompleteRequest:(NSArray *)requestData{
-    AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
-    NSArray *results;
     NSDictionary *response;
-    NSLog(@"Obtained user data");
+    NSLog(@"Obtained data");
     
     if (requestData.count > 0) {
         response = requestData[0];
-        
+
+        if ([response objectForKey:@"errors"]){
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upsss"
+                                                            message:@"Can't find that user... Probably I got confused, please try again"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+
+        // Actually save the entry in Core Data
+        AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
         NSManagedObjectContext *context = appDelegate.managedObjectContext;
 
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-        NSPredicate *searchFilter = [NSPredicate predicateWithFormat:@"userName = %@", response[@"username"]];
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Celebrity" inManagedObjectContext:context];
-        
-        [request setEntity:entity];
-        [request setPredicate:searchFilter];
-        results = [context executeFetchRequest:request error:nil];
-    }
-
-    if (results.count > 0) {
-        Celebrity *celebrity = results[0];
+        Celebrity *celebrity = [NSEntityDescription insertNewObjectForEntityForName:@"Celebrity" inManagedObjectContext:context];
         celebrity.realName = response[@"real_name"];
+        celebrity.userName = response[@"username"];
         celebrity.userPhoto = response[@"photo"];
         [appDelegate saveContext];
+
+        [self loadData];
+        [self.tableView reloadData];
     }
 
     else{
