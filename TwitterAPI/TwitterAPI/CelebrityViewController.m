@@ -133,7 +133,7 @@
             NSManagedObjectContext *context = appDelegate.managedObjectContext;
             
             NSFetchRequest *request = [[NSFetchRequest alloc] init];
-            NSPredicate *searchFilter = [NSPredicate predicateWithFormat:@"userName = %@", username];
+            NSPredicate *searchFilter = [NSPredicate predicateWithFormat:@"ANY userName LIKE[c] %@", username];
             NSEntityDescription *entity = [NSEntityDescription entityForName:@"Celebrity" inManagedObjectContext:context];
 
             [request setEntity:entity];

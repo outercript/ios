@@ -63,11 +63,11 @@
 		8343570B1845052E0011B9A9 /* Celebrity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Celebrity.m; sourceTree = "<group>"; };
 		8343570D184505B50011B9A9 /* CelebrityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CelebrityViewController.h; path = TwitterAPI/CelebrityViewController.h; sourceTree = "<group>"; };
 		8343570E184505B50011B9A9 /* CelebrityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CelebrityViewController.m; path = TwitterAPI/CelebrityViewController.m; sourceTree = "<group>"; };
-		838EE15F183FB16100031D8D /* TwittsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwittsTableViewController.h; sourceTree = "<group>"; };
-		838EE160183FB16100031D8D /* TwittsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwittsTableViewController.m; sourceTree = "<group>"; };
+		838EE15F183FB16100031D8D /* TwittsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwittsTableViewController.h; path = TwitterAPI/TwittsTableViewController.h; sourceTree = "<group>"; };
+		838EE160183FB16100031D8D /* TwittsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TwittsTableViewController.m; path = TwitterAPI/TwittsTableViewController.m; sourceTree = "<group>"; };
 		BE1A2440184058CD00014467 /* TwitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitCell.h; sourceTree = "<group>"; };
 		BE1A2441184058CD00014467 /* TwitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitCell.m; sourceTree = "<group>"; };
-		BE8EBA10183C622F0004AE2E /* TwitterAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE8EBA10183C622F0004AE2E /* Everyth!ng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Everyth!ng.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE8EBA13183C622F0004AE2E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BE8EBA15183C622F0004AE2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BE8EBA17183C622F0004AE2E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -113,8 +113,6 @@
 			children = (
 				BE1A2440184058CD00014467 /* TwitCell.h */,
 				BE1A2441184058CD00014467 /* TwitCell.m */,
-				838EE15F183FB16100031D8D /* TwittsTableViewController.h */,
-				838EE160183FB16100031D8D /* TwittsTableViewController.m */,
 			);
 			name = DetailedView;
 			path = TwitterAPI;
@@ -136,7 +134,7 @@
 		BE8EBA11183C622F0004AE2E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE8EBA10183C622F0004AE2E /* TwitterAPI.app */,
+				BE8EBA10183C622F0004AE2E /* Everyth!ng.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,6 +212,8 @@
 				8343570E184505B50011B9A9 /* CelebrityViewController.m */,
 				834356C01844F9180011B9A9 /* BHCollectionViewController.h */,
 				834356C11844F9180011B9A9 /* BHCollectionViewController.m */,
+				838EE15F183FB16100031D8D /* TwittsTableViewController.h */,
+				838EE160183FB16100031D8D /* TwittsTableViewController.m */,
 				BE8EBA46183C70CB0004AE2E /* MainStoryboard.storyboard */,
 			);
 			name = "View Controllers";
@@ -236,7 +236,7 @@
 			);
 			name = "Everyth!ng";
 			productName = TwitterAPI;
-			productReference = BE8EBA10183C622F0004AE2E /* TwitterAPI.app */;
+			productReference = BE8EBA10183C622F0004AE2E /* Everyth!ng.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */

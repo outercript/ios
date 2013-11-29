@@ -38,7 +38,6 @@
 - (void)prepareForReuse
 {
     [super prepareForReuse];
-    
     self.titleLabel.text = nil;
 }
 

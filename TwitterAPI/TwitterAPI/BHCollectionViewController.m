@@ -142,7 +142,6 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     BHAlbum *album = self.albums[section];
-    
     return album.photos.count;
 }
 
@@ -158,23 +157,16 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
     
     // load photo images in the background
     __weak BHCollectionViewController *weakSelf = self;
-    NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         UIImage *image = [photo image];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // then set them via the main queue if the cell is still visible.
-            if ([weakSelf.collectionView.indexPathsForVisibleItems containsObject:indexPath]) {
-                BHAlbumPhotoCell *cell =
-                    (BHAlbumPhotoCell *)[weakSelf.collectionView cellForItemAtIndexPath:indexPath];
-                cell.imageView.image = image;
-            }
-        });
-    }];
-    
-    operation.queuePriority = (indexPath.item == 0) ?
-        NSOperationQueuePriorityHigh : NSOperationQueuePriorityNormal;
-    
-    [self.thumbnailQueue addOperation:operation];
+
+        // then set them via the main queue if the cell is still visible.
+        if ([weakSelf.collectionView.indexPathsForVisibleItems containsObject:indexPath]) {
+            BHAlbumPhotoCell *cell =
+                (BHAlbumPhotoCell *)[weakSelf.collectionView cellForItemAtIndexPath:indexPath];
+            cell.imageView.image = image;
+        }
+    });
 
     return photoCell;
 }
@@ -189,7 +181,6 @@ static NSString * const AlbumTitleIdentifier = @"AlbumTitle";
                                                   forIndexPath:indexPath];
     
     BHAlbum *album = self.albums[indexPath.section];
-    
     titleView.titleLabel.text = album.name;
     
     return titleView;

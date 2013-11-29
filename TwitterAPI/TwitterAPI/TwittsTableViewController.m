@@ -70,16 +70,14 @@
     newFrame.size.height = [self calculateCellHeight:cell rowIndex:indexPath.row];
     cell.content.frame = newFrame;
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    dispatch_queue_t queue = dispatch_get_main_queue();
     dispatch_async(queue, ^{
         NSURL *imageURL = [NSURL URLWithString:twittsList[indexPath.row][@"thumbnail"]];
         NSData *rawImage = [NSData dataWithContentsOfURL:imageURL];
         UIImage *image = [UIImage imageWithData:rawImage];
         
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [cell.userImage setImage:image];
-            [cell setNeedsLayout];
-        });
+        [cell.userImage setImage:image];
+        [cell setNeedsLayout];
     });
     
     return cell;
@@ -107,16 +105,6 @@
     return newContentSize.height;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
 
 #pragma mark - TwitterRequest delegate
 - (void) didCompleteRequest:(NSArray *)requestData{
